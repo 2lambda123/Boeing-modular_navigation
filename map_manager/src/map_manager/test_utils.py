@@ -77,7 +77,7 @@ def generate_cartographer_map(
 
     xml_file = open(world_sdf_path, 'r')
     sdf_xml = xml_file.read()
-    parser = etree.XMLParser(remove_blank_text=True)
+    parser = etree.XMLParser(remove_blank_text=True, resolve_entities=False)
     original_xml_element = etree.XML(sdf_xml, parser=parser)
     world = original_xml_element.find('world')
 
