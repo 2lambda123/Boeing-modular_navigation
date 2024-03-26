@@ -273,7 +273,7 @@ def run(dxf_file, world_template_file, output_sdf_file):
     ]
 
     template_loader = jinja2.FileSystemLoader(searchpath=os.path.dirname(world_template_file))
-    template_env = jinja2.Environment(loader=template_loader)
+    template_env = jinja2.Environment(loader=template_loader, autoescape=True)
     template = template_env.get_template(os.path.basename(world_template_file))
 
     out = template.render(bollards=bollards, walls=walls, nodes=nodes, paths=paths, markers=markers)
